@@ -10,6 +10,20 @@ It is built for cases like:
 - validating whether a fix only looks right or actually survives the full user flow
 - turning repeated UX decisions into durable product rules
 
+## What You Get
+
+If you use this repository well, the practical result is:
+
+- clearer product reviews instead of vague comments like “this feels messy”
+- faster detection of semantic drift between entry, runtime, recovery, and history
+- reusable prompts and methods you can carry from one app to another
+- better collaboration with AI assistants because the review method is explicit
+- a path from “we noticed this again” to “this is now a durable product rule”
+
+In short:
+
+This repository helps you get better product decisions out of your AI assistant with less re-explaining every time.
+
 ## What This Repository Contains
 
 Current skills:
@@ -75,16 +89,76 @@ docs/
 
 ## Installation
 
+## Easiest Setup For New Users
+
+If you do not have much terminal experience, follow these steps in order.
+
+### Step 1. Clone this repository
+
+Open Terminal and run:
+
+```bash
+git clone git@github.com:rushairer/codex-product-skills.git
+```
+
+If SSH is not configured, use:
+
+```bash
+git clone https://github.com/rushairer/codex-product-skills.git
+```
+
+Then enter the repository:
+
+```bash
+cd codex-product-skills
+```
+
+### Step 2. Create your Codex skills directory
+
+```bash
+mkdir -p ~/.codex/skills
+```
+
+### Step 3. Copy the skills you want to use
+
+If you want the safest beginner setup, copy these two first:
+
+```bash
+cp -R skills/product-ui-consistency-review-core ~/.codex/skills/
+cp -R skills/product-flow-validation ~/.codex/skills/
+```
+
+If `cp -R` does not work well in your environment, use:
+
+```bash
+rsync -a skills/product-ui-consistency-review-core/ ~/.codex/skills/product-ui-consistency-review-core/
+rsync -a skills/product-flow-validation/ ~/.codex/skills/product-flow-validation/
+```
+
+### Step 4. Restart Codex
+
+Close Codex and open it again.
+
+### Step 5. Start with one skill only
+
+For most people, the best first move is:
+
+1. install `product-ui-consistency-review-core`
+2. install `product-flow-validation`
+3. try one real review task
+
+Do not install everything and use everything at once unless you already know why you need each skill.
+
 ### For Codex
 
-Copy one or more skill folders into your Codex skills directory.
+Once the repository is cloned, copy one or more skill folders into your Codex skills directory.
 
 Example:
 
 ```bash
 mkdir -p ~/.codex/skills
-rsync -a skills/product-ui-consistency-review-core/ ~/.codex/skills/product-ui-consistency-review-core/
-rsync -a skills/product-flow-validation/ ~/.codex/skills/product-flow-validation/
+cp -R skills/product-ui-consistency-review-core ~/.codex/skills/
+cp -R skills/product-flow-validation ~/.codex/skills/
 ```
 
 Then restart Codex.
@@ -94,17 +168,17 @@ Recommended install sets:
 ### Minimal starter set
 
 ```bash
-rsync -a skills/product-ui-consistency-review-core/ ~/.codex/skills/product-ui-consistency-review-core/
-rsync -a skills/product-flow-validation/ ~/.codex/skills/product-flow-validation/
+cp -R skills/product-ui-consistency-review-core ~/.codex/skills/
+cp -R skills/product-flow-validation ~/.codex/skills/
 ```
 
 ### Full product set
 
 ```bash
-rsync -a skills/product-ui-consistency-review-core/ ~/.codex/skills/product-ui-consistency-review-core/
-rsync -a skills/product-ui-consistency-review-specialized/ ~/.codex/skills/product-ui-consistency-review-specialized/
-rsync -a skills/product-flow-validation/ ~/.codex/skills/product-flow-validation/
-rsync -a skills/app-rules-architect/ ~/.codex/skills/app-rules-architect/
+cp -R skills/product-ui-consistency-review-core ~/.codex/skills/
+cp -R skills/product-ui-consistency-review-specialized ~/.codex/skills/
+cp -R skills/product-flow-validation ~/.codex/skills/
+cp -R skills/app-rules-architect ~/.codex/skills/
 ```
 
 ### For other AI coding assistants
@@ -117,7 +191,7 @@ Recommended setup:
 2. Pick the one skill that matches your current job.
 3. Open that skill's `SKILL.md`.
 4. Ask your assistant to read `README.md` first, then the chosen `SKILL.md`.
-5. Tell it to follow the skill as the working method for the rest of the task.
+5. Tell it to follow that skill as the working method for the rest of the task.
 
 This works well with assistants such as:
 
@@ -138,6 +212,23 @@ If you are new to this repository, use this path:
 2. Add `product-flow-validation` once you start fixing state, recovery, or replay issues.
 3. Add `product-ui-consistency-review-specialized` only when your product already has stable family-specific language.
 4. Add `app-rules-architect` when the same review outcomes keep repeating and should become rules.
+
+## Non-Technical User Path
+
+If you are not technical and just want to get started:
+
+1. Clone the repository.
+2. Copy `product-ui-consistency-review-core` and `product-flow-validation` into `~/.codex/skills/`.
+3. Restart Codex.
+4. Open your project.
+5. Start with this exact prompt:
+
+```text
+Use product-ui-consistency-review-core to review these related screens.
+If you find fixes that change entry, runtime, recovery, or history meaning, follow with product-flow-validation.
+```
+
+That is enough to get value from this repository without learning every skill first.
 
 ## Prompt Templates For Other Assistants
 
