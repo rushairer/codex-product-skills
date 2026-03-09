@@ -2,9 +2,9 @@
 
 ## Purpose
 
-This file explains how the three product-oriented skills should coexist without overlapping too much.
+This file explains how the product-oriented skills should coexist without overlapping too much.
 
-## The Three Skills
+## The Skills
 
 ### `product-ui-consistency-review-core`
 - The generic review skill.
@@ -25,10 +25,16 @@ This file explains how the three product-oriented skills should coexist without 
   - `FEATURE_RULES.md`
   - `PRODUCT_PRINCIPLES.md`
 
+### `product-flow-validation`
+- The end-to-end semantic chain validation skill.
+- Use when a user choice may be drifting between entry, runtime, persistence, recovery, history, and replay surfaces.
+- Best after consistency fixes, navigation refactors, persistence changes, or recovery work.
+
 ## Simple Routing Rule
 
 - Need to **review screens generically** → use `product-ui-consistency-review-core`
 - Need to **review screens using product-specific concepts** → use `product-ui-consistency-review-specialized`
+- Need to **validate whether the full user flow preserves meaning** → use `product-flow-validation`
 - Need to **turn repeated decisions into rules** → use `app-rules-architect`
 
 ## When Core and Specialized Both Seem Applicable
@@ -47,8 +53,9 @@ If still unsure:
 
 They serve different levels:
 
-- `core` = reusable method
-- `specialized` = domain-aware enhancement
+- `core` = reusable screen-family method
+- `specialized` = domain-aware screen-family method
+- `flow-validation` = end-to-end semantic chain validation
 - `architect` = rule system builder
 
 The overlap is intentional, but the ownership is different.
@@ -58,12 +65,14 @@ The overlap is intentional, but the ownership is different.
 ### For most projects
 - Install and use:
   - `product-ui-consistency-review-core`
+  - `product-flow-validation`
   - `app-rules-architect`
 
 ### For domain-heavy product lines
 - Install and use:
   - `product-ui-consistency-review-core`
   - `product-ui-consistency-review-specialized`
+  - `product-flow-validation`
   - `app-rules-architect`
 
 ### For one-off demos or tiny apps
@@ -73,4 +82,5 @@ The overlap is intentional, but the ownership is different.
 
 - Improve `core` when the review method itself gets better.
 - Improve `specialized` when domain language, repeated patterns, or common drift types get clearer.
+- Improve `flow-validation` when the entry-to-runtime-to-history validation method gets sharper.
 - Improve `architect` when your rules framework becomes more reusable across apps.
