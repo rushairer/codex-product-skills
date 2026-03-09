@@ -77,6 +77,8 @@ Be explicit when the issue is real.
   - use for project-agnostic page reviews
 - `product-ui-consistency-review-specialized`
   - use for domain-specific page families
+- `product-flow-validation`
+  - use after specialized consistency review when the remaining question is whether the product's domain-specific choice survives runtime, recovery, history, and re-entry
 - `app-rules-architect`
   - use when the repeated review outcome should become a durable rule
 
@@ -88,4 +90,3 @@ Use this skill when the user says things like:
 - “This app already has a known pattern; is this screen drifting?”
 - “Review this using our existing product structure.”
 - “Check whether this page still matches the established page family.”
-

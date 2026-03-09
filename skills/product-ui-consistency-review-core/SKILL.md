@@ -136,6 +136,11 @@ Escalate from local fixes to shared abstractions when:
 - future changes should land across a family
 - the inconsistency is about product meaning, not just spacing
 
+## Relationship To Other Skills
+
+- `product-flow-validation`
+  - use after consistency fixes when the remaining question is whether entry, runtime, persistence, recovery, and replay still keep the same meaning across a user path
+
 ## Good Triggers
 
 This skill is especially useful when the user asks:

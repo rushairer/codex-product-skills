@@ -1,0 +1,5 @@
+version: 1
+interface:
+  display_name: Product Flow Validation
+  short_description: Validate product meaning across entry, runtime, persistence, recovery, and replay flows.
+  default_prompt: Validate this product flow end-to-end. Trace the user choice from entry surface through runtime, persistence, recovery, history, and re-entry, and flag where the meaning first diverges.
