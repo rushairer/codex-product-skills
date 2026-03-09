@@ -347,6 +347,7 @@ Useful companion docs:
 
 - [docs/SKILL_BOUNDARIES.md](docs/SKILL_BOUNDARIES.md)
 - [docs/RULES_AND_SKILLS_README.md](docs/RULES_AND_SKILLS_README.md)
+- [docs/USAGE_EXAMPLES.md](docs/USAGE_EXAMPLES.md)
 
 ## License
 
